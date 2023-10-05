@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Listens to active ports and displays information about associated programs.
+
+ss -ltp

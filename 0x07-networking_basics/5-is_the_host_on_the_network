@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Get listening ports along with corresponding PID and program name
+listening_ports=$(ss -tuln | awk 'NR > 1 {print $5}' | cut -d: -f2)
+echo "Listening Ports:"
+echo "PORT  PID  PROGRAM"
+for port in $listening_ports; do
+    pid=$(lsof -i :$port | awk 'NR > 1 {print $2}')
+    program=$(ps -p $pid -o comm=)
+    echo "$port   $pid   $program"
+done
