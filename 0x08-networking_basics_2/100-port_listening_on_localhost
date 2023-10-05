@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Simple server listening on port 98 on localhost.
+
+while true; do
+    { echo -ne "HTTP/1.1 200 OK\r\nContent-Length: $(echo -n Hello, World! | wc -c)\r\n\r\nHello, World!"; } | nc -l -p 98 -q 1 -s localhost
+done

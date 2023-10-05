@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Setup an Ubuntu server with the following configurations:
+#   - Maps localhost to 127.0.0.2
+#   - Maps facebook.com to 8.8.8.8
+
+# Create a copy of the hosts file
+cp /etc/hosts ~/custom_hosts
+
+# Update the custom hosts file
+echo "127.0.0.2		localhost" > ~/custom_hosts
+echo "8.8.8.8		facebook.com" >> ~/custom_hosts
+
+# Apply the custom hosts file
+sudo cp -f ~/custom_hosts /etc/hosts
