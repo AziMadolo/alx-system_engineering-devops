@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Change the default nginx port from 8080 to 80
+sudo sed -i 's/listen 8080/listen 80/' /etc/nginx/sites-enabled/default
+
+# Restart the nginx service to apply the changes
+sudo systemctl restart nginx
